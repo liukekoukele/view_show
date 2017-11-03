@@ -1,0 +1,54 @@
+/*
+ * ClassifierDarknet.h
+ *
+ *  Created on: May 31, 2017
+ *      Author: zhuyong
+ */
+
+#ifndef CLASSIFIER_DARKNET_NEWFILE
+#define CLASSIFIER_DARKNET_NEWFILE
+
+ #include <iostream>
+
+
+#include <ros/ros.h>
+//#include <ros/callback_queue.h>
+
+#include <image_transport/image_transport.h>
+#include <cv_bridge/cv_bridge.h>
+//#include <darknet/detection_layer.h>
+#include <ros_darknet/darknet.h>
+
+//#include <darknet/region_layer.h>
+//#include <darknet/list.h>
+//#include<darknet/option_list.h>
+//#include<darknet/parser.h>
+ using namespace ros;
+
+namespace my_space_uts {
+
+
+class ClassifierDarknet
+{
+ public:  
+  ClassifierDarknet();
+  virtual ~ClassifierDarknet();
+  void init();
+  std::vector<box> Detectimg(cv::Mat &imgMat);
+  
+  private:
+    network net;
+   box *boxes;
+    float **probs;
+   image **alphabet ;
+   int demo_detections ;
+   float **predictions;
+   float   thresh ;
+   float   hier_thresh ;
+   layer l;
+};
+
+
+ 
+} 
+#endif

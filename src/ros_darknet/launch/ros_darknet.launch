@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+   <node name="ros_darknet" pkg="ros_darknet" type="ros_darknet" output="screen" required="true"/>
+</launch>
